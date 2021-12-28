@@ -6,15 +6,11 @@ class Point:
         self.location = vector
 
     def __init__(self, location=[0, 0, 0]):
-        self.location = Vector3D(location)
+        self.location = Vector(location)
     '''    def __init__(self, x, y, z):
         self.location = Vector3D([x, y, z])
 
-
-    '''
-
-
-    '''    def __add__(self, other):
+     def __add__(self, other):
         addition = []
         for i in range(3):
             addition.append(self.location[i]+other.location[i])

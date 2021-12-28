@@ -1,6 +1,6 @@
+import math as math
 
-
-class Vector3D:
+class Vector:
     def __init__(self, xyz):
         self.vector = xyz
 
@@ -12,15 +12,22 @@ class Vector3D:
         y = self.vector[1]+other.getComponents[1]
         z = self.vector[2]+other.getComponents[2]
         tab = [x, y, z]
-        return Vector3D(tab)
+        return Vector(tab)
 
-    '''def cdot(self,v2):
-        x2, y2 , z2 = v2.getComponents()
-        x,y=self.__srcVector.getComponents
-        x3 = x * x2
-        y3 = y * y2
-        z3 = self.__z * z2
-        return x3+y3+z3'''
+    def __sub__(self, other):
+        x = self.vector[0]-other.getComponents[0]
+        y = self.vector[1]-other.getComponents[1]
+        z = self.vector[2]-other.getComponents[2]
+        tab = [x, y, z]
+        return Vector(tab)
+
+    def cdot(self, v2):
+        x2, y2, z2 = v2.getComponents()
+
+        x3 = self.vector[0] * x2
+        y3 = self.vector[1] * y2
+        z3 = self.vector[2] * z2
+        return x3+y3+z3
 
     def getComponents(self):
         return self.vector
@@ -43,3 +50,14 @@ class Vector3D:
             sum = 0
         return newVector
 
+    def cos_3d(self, other):
+        a = self.cdot(other)
+        sum_abs = abs(self)+abs(other)
+        cos_3d = a/sum_abs
+        return cos_3d
+
+    def reflection_surface(self, surface):
+        pass
+
+    def reflection_point(self, point):
+        pass

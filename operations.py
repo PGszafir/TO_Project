@@ -11,5 +11,4 @@ def int_split_nr(a,b):
     c=len(tab)
     for i in range(b-c):
         tab.append(0)
-    print(tab)
     return tab
