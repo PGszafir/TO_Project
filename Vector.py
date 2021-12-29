@@ -8,18 +8,23 @@ class Vector:
         return (self.vector[0]**2+self.vector[1]**2+self.vector[2]**2)**0.5
 
     def __add__(self, other):
-        x = self.vector[0]+other.getComponents[0]
-        y = self.vector[1]+other.getComponents[1]
-        z = self.vector[2]+other.getComponents[2]
+        print(type(self),type(other),type(self.vector[0]))
+        x = self.vector[0]+other.getComponents()[0]
+        y = self.vector[1]+other.getComponents()[1]
+        z = self.vector[2]+other.getComponents()[2]
         tab = [x, y, z]
         return Vector(tab)
 
     def __sub__(self, other):
-        x = self.vector[0]-other.getComponents[0]
-        y = self.vector[1]-other.getComponents[1]
-        z = self.vector[2]-other.getComponents[2]
+        x = self.vector[0]-other.getComponents()[0]
+        y = self.vector[1]-other.getComponents()[1]
+        z = self.vector[2]-other.getComponents()[2]
         tab = [x, y, z]
         return Vector(tab)
+
+    def __getitem__(self, item):
+        return self.getComponents()[item]
+
 
     def cdot(self, v2):
         x2, y2, z2 = v2.getComponents()
