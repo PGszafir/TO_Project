@@ -19,8 +19,7 @@ class Point:
 
     def __add__(self, other):
         vector = self.getLocationVector() + other.getLocationVector()
-        addition = Point(vector)
-        return addition
+        return Point(vector)
 
 
 
@@ -48,4 +47,4 @@ class Material_Point(Point):
         self.speed = speed
 
     def step(self):
-        pass
+        self.location = self.location+self.speed

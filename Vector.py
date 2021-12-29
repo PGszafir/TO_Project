@@ -8,7 +8,6 @@ class Vector:
         return (self.vector[0]**2+self.vector[1]**2+self.vector[2]**2)**0.5
 
     def __add__(self, other):
-        print(type(self),type(other),type(self.vector[0]))
         x = self.vector[0]+other.getComponents()[0]
         y = self.vector[1]+other.getComponents()[1]
         z = self.vector[2]+other.getComponents()[2]
