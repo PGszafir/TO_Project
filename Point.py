@@ -40,11 +40,12 @@ class Point:
 
 
 class Material_Point(Point):
-    def __init__(self, location, mass, r, speed=Vector([0, 0, 0])):
+    def __init__(self, location, mass, r, speed=Vector([0, 0, 0]), resultant_force=Vector([0, 0, 0])):
         self.location = location
         self.mass = mass
         self.r = r
         self.speed = speed
+        self.resultant_force = resultant_force
 
     def step(self):
-        self.location = self.location+self.speed
+        self.location = self.location+self.speed.multiply_by_scalar(0.01)

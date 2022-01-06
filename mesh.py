@@ -57,7 +57,7 @@ class Particles(Mesh):
         for i in range(count):
             location = Vector([3, (rand.random()-0.5)*4, (rand.random()-0.5)*4]) # !!!
 
-            self.verticles.append(Material_Point(location,mass, r, speed))
+            self.verticles.append(Material_Point(location, mass, r, speed))
 
     def step(self):
         for i in self.verticles:

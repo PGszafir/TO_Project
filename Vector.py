@@ -24,6 +24,9 @@ class Vector:
     def __getitem__(self, item):
         return self.getComponents()[item]
 
+    def multiply_by_scalar(self, scalar):
+        tab=[self.vector[0]*scalar, self.vector[1]*scalar, self.vector[2]*scalar]
+        return Vector(tab)
 
     def cdot(self, v2):
         x2, y2, z2 = v2.getComponents()
