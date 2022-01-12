@@ -1,4 +1,6 @@
 from Point import *
+from Edge import *
+from Surface import *
 from operations import *
 import random as rand
 

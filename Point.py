@@ -1,7 +1,8 @@
 # import self as self
 from Vector import *
 
-class Point:
+
+class Point(Vector):
     def __int__(self, vector):
         self.location = vector
 
@@ -20,8 +21,6 @@ class Point:
     def __add__(self, other):
         vector = self.getLocationVector() + other.getLocationVector()
         return Point(vector)
-
-
 
     '''    def __init__(self, x, y, z):
         self.location = Vector3D([x, y, z])
@@ -48,4 +47,4 @@ class Material_Point(Point):
         self.resultant_force = resultant_force
 
     def step(self):
-        self.location = self.location+self.speed.multiply_by_scalar(0.01)
+        self.location = self.location + self.speed.multiply_by_scalar(0.01)
