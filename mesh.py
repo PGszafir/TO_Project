@@ -17,6 +17,10 @@ class Mesh:
             points.append(i+self.center)
         return points
 
+class Sphere:
+    def __init__(self, location, r=1):
+        self.center = location
+        self.r = r
 
 class Cube(Mesh):
 
