@@ -63,8 +63,11 @@ class Vector:
         cos_3d = a/sum_abs
         return cos_3d
 
-    def reflection_surface(self, surface):
-        pass
+    def reflection_surface(self, angle):
+        a = self.abs()
+        self.vector[0] = -self.vector[0]#-math.cos(angle[0])*a
+        self.vector[1] = -self.vector[1]#-math.cos(angle[0])*a
+        self.vector[2] = -self.vector[2]#-math.cos(angle[0])*a
 
     def reflection_point(self, point):
         pass

@@ -58,11 +58,11 @@ class Particles(Mesh):
 
     def emition_from_surface(self, count):
         mass = 0.01
-        speed = Vector([-1, 0, 0])
+        #speed = Vector([-1, 0, 0])
         r = 0.01
         for i in range(count):
             location = Vector([3, (rand.random()-0.5)*4, (rand.random()-0.5)*4]) # !!!
-
+            speed = Vector([-1, 0, 0])
             self.verticles.append(Material_Point(location, mass, r, speed))
 
     def step(self):

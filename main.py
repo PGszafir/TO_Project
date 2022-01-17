@@ -5,35 +5,35 @@ from mesh import *
 from operations import *
 from draw3d import *
 
-vector0 = Vector([0,0,0])
+#if __name__ == '__main__':
+gui = Interface()
+gui.setup_()
+gui.run()
+
+print(gui.r, gui.nop, gui.figure)
+i, r, type = gui.get_values()
+
+
+vector0 = Vector([0, 0, 0])
 point0 = Point(vector0)
 a = Draw
-cube1 = Cube(point0, 2)
-
 scene = Cuboid(point0, 6, 4, 4)
+
+cube1 = Cube(point0, 2)
 particles = Particles(vector0, 0)
-particles.emition_from_surface(100)
+#particles.emition_from_surface(50)
+for frame in range(0, 1000):
+   # ax.view_init(30, 90)
+   if frame%10 == 0:
+      particles.emition_from_surface(i)
+   plt.cla()
+   a.draw(scene)
+   a.draw(cube1)
+   plt.draw()
+   a.draw(particles, 'r', '.')
+   particles.step()
+   plt.pause(.001)
+plt.show()
 
-
-
-if __name__ == '__main__':
-   gui = Interface()
-   gui.run()
-
-
-
-   #a = Draw
-
+#a = Draw
    #draw(particles,'y','.')
-
-   for frame in range(0, 10000):
-      # ax.view_init(30, 90)
-      plt.cla()
-      a.draw(scene)
-      a.draw(cube1)
-      plt.draw()
-      a.draw(particles, 'r', '.')
-      particles.step()
-      plt.pause(.001)
-
-   plt.show()
