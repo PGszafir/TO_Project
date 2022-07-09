@@ -1,32 +1,24 @@
 import math as math
+import torch
 
 class Vector:
-    def __init__(self, xyz):
-        self.vector = xyz
-
+    def __init__(self, xyz, device="cpu"):
+        self.vector = torch.tensor(xyz).to(device)
+        self.device=device
     def abs(self):
         return (self.vector[0]**2+self.vector[1]**2+self.vector[2]**2)**0.5
 
     def __add__(self, other):
-        x = self.vector[0]+other.getComponents()[0]
-        y = self.vector[1]+other.getComponents()[1]
-        z = self.vector[2]+other.getComponents()[2]
-        tab = [x, y, z]
-        return Vector(tab)
+        return Vector(self.vector*other.getComponents(), self.device)
 
     def __sub__(self, other):
-        x = self.vector[0]-other.getComponents()[0]
-        y = self.vector[1]-other.getComponents()[1]
-        z = self.vector[2]-other.getComponents()[2]
-        tab = [x, y, z]
-        return Vector(tab)
+        return Vector(self.vector - other.getComponents(), self.device)
 
     def __getitem__(self, item):
         return self.getComponents()[item]
 
     def multiply_by_scalar(self, scalar):
-        tab=[self.vector[0]*scalar, self.vector[1]*scalar, self.vector[2]*scalar]
-        return Vector(tab)
+        return Vector(self.vector*scalar, self.device)
 
     def cdot(self, v2):
         x2, y2, z2 = v2.getComponents()
